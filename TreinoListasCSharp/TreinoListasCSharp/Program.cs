@@ -47,7 +47,22 @@ namespace TreinoListasCSharp
                 Console.WriteLine($"{aluno.Nome}, {aluno.Nota}, {aluno.Idade}");
             }
 
+            List<Aluno> ordemAlfabetica = alunos.OrderBy(aluno => aluno.Nome).ToList();
+            Console.WriteLine($"Alunos ordenados por ordem alfabética:");
+            foreach (Aluno aluno in ordemAlfabetica)
+            {
+                Console.WriteLine($"{aluno.Nome}, {aluno.Nota}, {aluno.Idade}");
+            }
 
+            int indexEduardo = alunos.FindIndex(aluno => aluno.Nome == "Eduardo");
+            Console.WriteLine(alunos[indexEduardo].Nome);
+
+            Aluno? alunoExistente = alunos.Find(aluno => aluno.Nome == "Mariaa");
+            if (alunoExistente != null)
+            {
+                Console.WriteLine(alunoExistente.Nome);
+            }
+            else Console.WriteLine("Aluno não encontrado");
 
             // Treinando Modificador Params
         }
