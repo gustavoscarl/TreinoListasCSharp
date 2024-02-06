@@ -18,7 +18,7 @@ namespace TreinoListasCSharp
             }
         }
 
-        List<Aluno> alunos = new()
+        public static List<Aluno> alunos = new()
         {
             new Aluno("João", 32, 9.0),
             new Aluno("Maria", 21, 8.0),
@@ -29,7 +29,27 @@ namespace TreinoListasCSharp
 
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            // Treinando Listas
+            double mediaNotas = alunos.Average(a => a.Nota);
+            Console.WriteLine(mediaNotas);
+
+            List<Aluno> aprovados = alunos.Where(aluno => aluno.Nota >= 6.0).ToList();
+            Console.WriteLine("Aprovados");
+            foreach (Aluno aluno in aprovados)
+            {
+                Console.WriteLine($"{aluno.Nome}, {aluno.Nota}, {aluno.Idade}");
+            }
+
+            List<Aluno> reprovados = alunos.Where(aluno => aluno.Nota < 6.0).ToList();
+            Console.WriteLine("Reprovados");
+            foreach (Aluno aluno in reprovados)
+            {
+                Console.WriteLine($"{aluno.Nome}, {aluno.Nota}, {aluno.Idade}");
+            }
+
+
+
+            // Treinando Modificador Params
         }
     }
 }
