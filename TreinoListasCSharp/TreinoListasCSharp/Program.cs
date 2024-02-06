@@ -27,6 +27,18 @@ namespace TreinoListasCSharp
             new Aluno("Ana", 30, 2.5),
         };
 
+
+        // Função que teste modificador params
+        public static double Soma(params double[] vetor) {
+            double soma = 0;
+            foreach (double valor in vetor)
+            {
+                soma += valor;
+            }
+            Console.WriteLine(vetor[vetor.Length - 2]);
+            return soma;
+        }
+
         static void Main(string[] args)
         {
             // Treinando Listas
@@ -65,6 +77,10 @@ namespace TreinoListasCSharp
             else Console.WriteLine("Aluno não encontrado");
 
             // Treinando Modificador Params
+
+            Console.WriteLine(Soma(1, 5, 9, 2023, 2024));
+
+            
         }
     }
 }
